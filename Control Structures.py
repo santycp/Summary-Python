@@ -113,3 +113,56 @@ words = ["spam", "egg", "spam", "sausage"]
 print("spam" in words) #True
 print("egg" in words) #True
 print("tomato" in words)#False
+
+#------- LIST functions ------
+
+#The "append" method adds an item to the end of an existing list.
+nums = [1, 2, 3]
+nums.append(4)
+print(nums) #[1, 2, 3, 4]
+#NOTE: the dot before append is there because it is a method of the list class.
+
+#To get the number of items in a list, you can use the "len" function.
+
+nums = [1, 3, 5, 2, 4]
+print(len(nums)) #5
+
+#Unlike the index of the items, len does not start with 0. So, the list above contains 5 items,
+# meaning len will return 5.
+#NOTE: len is written before the list it is being called on, without a dot.
+
+
+#The "insert" method is similar to "append", except that it allows you to insert a new item at any position in the list,
+# as opposed to just at the end.
+
+words = ["Python", "fun"]
+index = 1
+words.insert(index, "is")
+print(words) #['Python', 'is', 'fun']
+
+#NOTE: Elements, that are after the inserted item, are shifted to the right.
+
+
+#The index method finds the first occurrence of a list item and returns its index.
+#If the item isn't in the list, it raises a ValueError.
+
+letters = ['p', 'q', 'r', 's', 'p', 'u']
+print(letters.index('r')) #2
+print(letters.index('p')) #0
+print(letters.index('z')) #ValueError
+
+'''
+There are a few more useful functions and methods for lists.
+max(list): Returns the list item with the maximum value
+min(list): Returns the list item with minimum value
+list.count(item): Returns a count of how many times an item occurs in a list
+list.remove(item): Removes an object from a list
+list.reverse(): Reverses items in a list. 
+'''
+# example:
+#For example, you can count how many 42s are there in the list using:
+#items.count(42)
+#where items is the name of our list.
+
+#------- while LOOPS ------
+
