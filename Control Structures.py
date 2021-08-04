@@ -166,3 +166,111 @@ list.reverse(): Reverses items in a list.
 
 #------- while LOOPS ------
 
+#A while loop is used to repeat a block of code multiple times.
+i = 1
+while i <=5:
+    print(i)
+    i = i + 1
+
+print("Finished!")
+
+#You can use multiple statements in the while loop.
+
+x = 1
+while x < 10:
+    if x%2 == 0:
+        print(str(x) + " is even")
+    else:
+        print(str(x) + " is odd")
+
+    x += 1
+
+#NOTE:you can stop the program's execution by using the Ctrl-C
+
+#------- break ------
+
+#To end a while loop prematurely, the break statement can be used.
+
+i = 0
+while 1==1:
+    print(i)
+    i = i + 1
+    if i >= 5:
+        print("Breaking")
+        break
+
+print("Finished")
+
+#------- continue ------
+
+#Unlike break, continue jumps back to the top of the loop, rather than stopping it. Basically, the continue statement
+# stops the current iteration and continues with the next one.
+
+i = 1
+while i<=5:
+  print(i)
+  i += 1
+  if i==3:
+    print("Skipping 3")
+    continue
+
+#------- for LOOP ------
+
+#The for loop is used to iterate over a given sequence, such as lists or strings.
+
+words = ["hello", "world", "spam", "eggs"]
+for word in words:
+    print(word + "!")
+                        #hello!
+                        #world!
+                        #spam!
+                        #eggs!
+#Similar to while loops, the break and continue statements can be used in for loops, to stop the loop or jump
+# to the next iteration
+
+#------- RANGE ------
+
+#The range() function returns a sequence of numbers.
+#By default, it starts from 0, increments by 1 and stops before the specified number.
+numbers = list(range(10))
+print(numbers) #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#NOTE: In order to output the range as a list, we need to explicitly convert it to a list, using the list() function.
+
+#If it is called with two arguments, it produces values from the first to the second.
+
+numbers = list(range(3, 8))
+print(numbers) #[3, 4, 5, 6, 7]
+
+print(range(20) == range(0, 20)) #True
+
+#range can have a third argument, which determines the interval of the sequence produced, also called the step
+
+numbers = list(range(5, 20, 2))
+print(numbers) #[5, 7, 9, 11, 13, 15, 17, 19]
+
+'''
+PROBLEM (FIZZBUZZ)
+
+The given code solves the FizzBuzz problem and uses the words "Solo" and "Learn" instead of "Fizz" and "Buzz".
+It takes an input n and outputs the numbers from 1 to n.
+For each multiple of 3, print "Solo" instead of the number.
+For each multiple of 5, prints "Learn" instead of the number.
+For numbers which are multiples of both 3 and 5, output "SoloLearn". 
+
+'''
+
+n = int(input())
+
+for x in range(1, n):
+    if x % 3 == 0 and x % 5 == 0:
+        print("SoloLearn")
+    elif x % 2 == 0:
+        continue
+    elif x % 3 == 0:
+        print("Solo")
+    elif x % 5 == 0:
+        print("Learn")
+
+    else:
+        print(x)
