@@ -159,3 +159,39 @@ print(file.read())
 file.close()
 
 #Just like passing no arguments, negative values will return the entire contents.
+
+#----- Writing Files ------
+
+#To write to files you use the write method, which writes a string to the file.
+file = open("newfile.txt", "w")
+file.write("This has been written to a file")
+file.close()
+
+file = open("newfile.txt", "r")
+print(file.read())
+file.close()
+#The "w" mode will create a file, if it does not already exist.
+#When a file is opened in write mode, the file's existing content is deleted.
+
+'''
+Book Titles
+
+You have been asked to make a special book categorization program, which assigns each book a special code based on its title.
+The code is equal to the first letter of the book, followed by the number of characters in the title.
+For example, for the book "Harry Potter", the code would be: H12, as it contains 12 characters (including the space).
+
+You are provided a books.txt file, which includes the book titles, each one written on a separate line.
+Read the title one by one and output the code for each book on a separate line. 
+'''
+
+lis=[]
+for i in file:
+    lis.append(i)
+
+for j in lis:
+    if j[-1] == '\n':
+        print(j[0] + str(len(j)-1))
+    else:
+        print(j[0] + str(len(j)))
+
+file.close()
