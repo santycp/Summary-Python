@@ -116,8 +116,151 @@ if re.match(pattern, "grey"):
 if re.match(pattern, "gray"):
     print("Match 2") #result
 
+
 if re.match(pattern, "stingray"):
     print("Match 3")
 
 #The pattern "^gr.y$" means that the string should start with gr, then follow with any character, except a newline,
-# and end with y.
+# and end with y
+
+#------ Characterer Classes -------
+
+#provide a way to match only one of a specific set of characters.
+
+import re
+
+pattern = r"[aeiou]"
+
+if re.search(pattern, "grey"):
+    print("Match 1") #result
+
+if re.search(pattern, "qwertyuiop"):
+    print("Match 2") #result
+
+if re.search(pattern, "rhythm myths"):
+    print("Match 3") #no result
+
+
+#The pattern [aeiou] in the search function matches all strings that contain any one of the characters defined.
+
+'''
+Character classes can also match ranges of characters.
+Some examples:
+The class [a-z] matches any lowercase alphabetic character.
+The class [G-P] matches any uppercase character from G to P.
+The class [0-9] matches any digit.
+Multiple ranges can be included in one class. For example, [A-Za-z] matches a letter of any case. 
+'''
+
+import re
+
+pattern = r"[A-Z][A-Z][0-9]"
+
+if re.search(pattern, "LS8"):
+    print("Match 1") #result
+
+if re.search(pattern, "E3"):
+    print("Match 2")
+
+if re.search(pattern, "1ab"):
+    print("Match 3")
+
+#The pattern in the example above matches strings that contain two alphabetic uppercase letters followed by a digit.
+#_---------_
+
+#Place a ^ at the start of a character class to invert it.
+#Esto hace que coincida con cualquier carácter que no sean los incluidos.
+#The metacharacter ^ has no meaning unless it is the first character in a class.
+
+import re
+
+pattern = r"[^A-Z]"
+
+if re.search(pattern, "this is all quiet"):
+    print("Match 1") #result
+
+if re.search(pattern, "AbCdEfG123"):
+    print("Match 2")
+
+if re.search(pattern, "THISISALLSHOUTING"):
+    print("Match 3")
+
+
+
+
+#------ Metacharacters ------
+#The metacharacter * means "zero or more repetitions of the previous thing".
+
+import re
+
+pattern = r"egg(spam)*"
+
+if re.match(pattern, "egg"):
+    print("Match 1")
+
+if re.match(pattern, "eggspamspamegg"):
+    print("Match 2")
+
+if re.match(pattern, "spam"):
+    print("Match 3")
+
+#The example above matches strings that start with "egg" and follow with zero or more "spam"s.
+#----------------------------------------------------------------------
+#The metacharacter + is very similar to *, except it means "one or more repetitions", as opposed to "zero or more
+#repetitions".
+
+import re
+
+pattern = r"g+"
+
+if re.match(pattern, "g"):
+    print("Match 1") #result
+
+if re.match(pattern, "gggggggggggggg"):
+    print("Match 2") #result
+
+if re.match(pattern, "abc"):
+    print("Match 3")
+
+'''
+To summarize:
+* matches 0 or more occurrences of the preceding expression.
++ matches 1 or more occurrence of the preceding expression.
+'''
+
+#The metacharacter ? means "zero or one repetitions".
+
+import re
+
+pattern = r"ice(-)?cream"
+
+if re.match(pattern, "ice-cream"):
+    print("Match 1") #result
+
+if re.match(pattern, "icecream"):
+    print("Match 2") #result
+
+if re.match(pattern, "sausages"):
+    print("Match 3")
+
+if re.match(pattern, "ice--ice"):
+    print("Match 4")
+
+#------ Curly Braces ------
+
+#can be used to represent the number of repetitions between two numbers.
+
+import re
+
+pattern = r"9{1,3}$"
+
+if re.match(pattern, "9"):
+    print("Match 1") #result
+
+if re.match(pattern, "999"):
+    print("Match 2") #result
+
+if re.match(pattern, "9999"):
+    print("Match 3")
+
+#"9{1,3}$" matches string that have 1 to 3 nines.
