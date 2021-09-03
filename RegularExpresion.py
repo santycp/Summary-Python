@@ -406,3 +406,16 @@ if match:
 match = re.search(pattern, "We scattered.")
 if match:
     print ("Match 3")
+
+
+
+#------ Email Extraction -------
+
+import re
+
+pattern = r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+)"
+str = "Please contact info@sololearn.com for assistance"
+
+match = re.search(pattern, str)
+if match:
+    print(match.group())
